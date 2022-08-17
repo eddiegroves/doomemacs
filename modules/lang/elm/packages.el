@@ -2,5 +2,6 @@
 ;;; lang/elm/packages.el
 
 (package! elm-mode :pin "d4e434fa1857ba2f58d27c7520ebeac0515cd140")
-(when (modulep! :checkers syntax)
+(when (and (modulep! :checkers syntax)
+           (not (modulep! :checkers syntax +flymake)))
   (package! flycheck-elm :pin "1b60050efd4729bfba548f3e5adbcb58436667cb"))

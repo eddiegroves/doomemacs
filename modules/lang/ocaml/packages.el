@@ -7,7 +7,8 @@
   (package! merlin :pin "be753d9412387aedcf32aba88a1be9bcd33d97ba")
   (package! merlin-eldoc :pin "db7fab1eddfe34781b7e79694f8923b285698032")
   (package! merlin-company :pin "be753d9412387aedcf32aba88a1be9bcd33d97ba")
-  (when (modulep! :checkers syntax)
+  (when (and (modulep! :checkers syntax)
+             (not (modulep! :checkers syntax +flymake)))
     (package! flycheck-ocaml :pin "77f8ddbd9bfc3a11957ac7ec7e45d5fa9179b192")))
 
 (package! ocp-indent :pin "7c4d434132cebc15a8213c8be9e7323692eb0a2b")

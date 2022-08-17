@@ -15,10 +15,11 @@
     (package! geiser-gauche :pin "8ff743f6416f00751e24aef8b9791501a40f5421"))
   (when (modulep! +guile)
     (package! geiser-guile :pin "b2d6f398e33c0f140dcde5adc91117aa7de4463d")
-    (when (modulep! :checkers syntax)
+    (when (and (modulep! :checkers syntax)
+             (not (modulep! :checkers syntax +flymake)))
       (package! flycheck-guile
         :recipe (:host github :repo "flatwhatson/flycheck-guile")
-        :pin "e58ceb8b511cd395b9be69f4a1ff85305fbb51c3")))
+        :pin "e58ceb8b511cd395b9be69f4a1ff85305fbb51c3"))
   (when (modulep! +kawa)
     (package! geiser-kawa :pin "5896b19642923f74f718eb68d447560b2d26d797"))
   (when (modulep! +mit)
